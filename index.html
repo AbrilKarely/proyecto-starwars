@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Star-wars Project</title>
+</head>
+
+<body>
+    <div class="busqueda">
+        <input id="buscador" type="text" placeholder="Buscador personaje.." />
+
+        <button onclick="llamarBusqueda()"> Buscar </button>
+        <button onclick="reiniciarData()"> Reiniciar </button>
+
+        <select name="sort" id="sort" onchange="ordenarPersonajes()">
+            <option value="none"> Sin ordenar </option>
+            <option value="mayor"> Mayor </option>
+            <option value="menor"> Menor </option>
+        </select>
+    </div>
+
+    <div id="personajes-wrapper" class="row"></div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
