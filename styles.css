@@ -1,17 +1,27 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .busqueda{
     display: flex;
+    margin-left: 60%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .tpersonaje{
     color: rgb(140, 0, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    margin-bottom: 5%;
 }
 
 /* float four colums side by side*/
-.colum{
+.column{
     float: left;
     width: 25%;
-    padding: 0 10px;
-    margin-top:  10px;
+    padding: 10%;
+    margin-top: 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
@@ -22,6 +32,7 @@
     content: "";
     display: table;
     clear: both;
+    
 }
 
 /* Responsive columns */
@@ -29,7 +40,7 @@
 .column {
     width: 100%;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 200px;
 }
 }
 
@@ -38,5 +49,11 @@
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 padding: 16px;
 text-align: center;
-background-color: #f1f1f1;
+background-color: #a3e0cb;
+width: 450%;
 }
+
+body{
+    background-color: rgb(171, 188, 197);
+}
+

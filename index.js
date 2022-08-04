@@ -22,11 +22,10 @@ inputBuscador.addEventListener("keyup", llamarBusqueda)
 
 // funcion para crear caracteristucas de los personajes//
 function buildCharacterCard(nombre, foto) {
-    console.log(nombre,foto)
     return `
         <div class= "column">
         <div class="card">
-        <h3 class = "tpersonaje"> ${nombre}</h3>
+        <h3 class = "tpersonaje">${nombre}</h3>
         <p>
         <img src = "${foto}" height= "300" width = "250" />
         <p>
@@ -41,14 +40,12 @@ async function getPersonajes() {
 
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data)
 
     // funcion para iterar la funcion//
     data.forEach(datum => {
         let nuevoPersonaje = new Personaje(datum.name, datum.image)
         personajes.push(nuevoPersonaje);
     });
-    console.log(personajes)
 
 
     personajes.forEach((personaje) => {
@@ -59,7 +56,7 @@ async function getPersonajes() {
     })
 }
 
- // insertamos 2 divs uno de columna y otro de tarjeta //    
+ //insertamos 2 divs uno de columna y otro de tarjeta //    
 //  personajes.map((personaje) => {
 //     elemento.innerHTML += `
 //     <div class = "column">
@@ -83,7 +80,6 @@ function reiniciarData() {
 // funcion para mandar llamar la busqueda //   
 function llamarBusqueda() {
     setTimeout(() => {
-        // const consulta = document.getElementById ("buscador").value;
         const consulta = inputBuscador.value;
         const personajesFiltrados = personajes.filter(personaje => personaje.name.toLowerCase().includes(consulta.toLocaleLowerCase()))
 
@@ -108,32 +104,33 @@ function ordenarPersonajes() {
         return null
     }
 
-    const personajesOrdenados = personajes.sort((a, b) => {
+    const personajesOrdenados = personajes.sort((a,b) => {
         let personajeA = a.name.toLowerCase()
         let personajeB = b.name.toLowerCase()
-
+    
         if (selector === 'menor') {
-            if (personajeA < personajeB) {
-                return -1
-            }
+          if (personajeA < personajeB) {
+            return -1
+          }
         } else if (selector === 'mayor') {
-            if (personajeA > personajeB) {
-                return -1
-            }
+          if (personajeA > personajeB) {
+            return -1
+          }
         } else {
-            return 0;
+          return 0;
         }
-    })
-
-    if (personajesOrdenados.lenght > 0) {
+      })
+    
+      if (personajesOrdenados.length > 0) {
         elemento.innerHTML = null
-        personajesOrdenados.forEach((personajesOrdenados) => {
-            elemento.innerHTML += buildCharacterCard(
-                personajesOrdenados.obtenerNombre(),
-                personajesOrdenados.obtenerFoto()
-            )
+    
+        personajesOrdenados.forEach((personajeOrdenado) => {
+          elemento.innerHTML += buildCharacterCard(
+            personajeOrdenado.obtenerNombre(),
+            personajeOrdenado.obtenerFoto()
+          )
         })
+      }
     }
-}
-
-getPersonajes();
+    
+    getPersonajes();
